@@ -87,7 +87,7 @@
 /*----------------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Unbounded:wght@200..900&amp;display=swap");
 :root {
-  --er-theme-color: #DFFE40;
+  --er-theme-color: #1e66a6;
   --er-theme-color-2: #1E1E1E;
   --er-theme-heading:#141414;
   --er-theme-heading-2:#F1F1F1;
@@ -252,7 +252,7 @@
   right: 50px;
   bottom: 50px;
   background: var(--er-theme-color);
-  color: #141414;
+  color: #ffffff;
   z-index: 100;
   width: 50px;
   height: 50px;
@@ -11409,7 +11409,7 @@ img {
 }
 .er-blog-3-date {
   list-style: none;
-  background-color: #DFFE40;
+  background-color: #1e66a6;
   display: inline-flex;
   position: absolute;
   top: 10px;
@@ -12116,7 +12116,7 @@ img {
   color: #ffffff;
 }
 .er-footer-menu-2 li:hover a {
-  color: #DFFE40;
+  color: #1e66a6;
 }
 .er-footer-social ul {
   list-style: none;
@@ -12141,10 +12141,10 @@ img {
   background-color: var(--er-theme-heading);
 }
 .er-footer-social ul li:hover i {
-  color: #DFFE40;
+  color: #1e66a6;
 }
 .er-footer-social ul li:hover svg path {
-  fill: #DFFE40;
+  fill: #1e66a6;
 }
 .er-footer-social-2 ul li {
   width: 42px;
@@ -12163,7 +12163,7 @@ img {
   font-size: 18px;
 }
 .er-footer-social-2 ul li:hover {
-  background-color: #DFFE40;
+  background-color: #1e66a6;
 }
 .er-footer-social-2 ul li:hover i {
   color: var(--er-theme-heading);
@@ -12980,6 +12980,15 @@ img {
 /*----------------------------------------*/
 /* 6.1 About css
 /*----------------------------------------*/
+.er-about-area .er-section-title-2 {
+  color: #ffffff;
+}
+.er-about-area .er-fact-title {
+  color: #ffffff;
+}
+.er-about-area .er-fact-para {
+  color: #ffffff;
+}
 @media (max-width: 550px) and (min-width: 320px) {
   .er-about-area {
     padding-top: 80px;
@@ -13605,7 +13614,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(223, 254, 64, 0.4) 0%, #DFFE40 100%);
+  background: linear-gradient(180deg, rgba(30, 102, 166, 0.4) 0%, #1e66a6 100%);
   z-index: 3;
   transition: 0.3s;
   visibility: hidden;
@@ -14059,14 +14068,14 @@ img {
   visibility: visible;
 }
 .er-service-item:hover .er-service-btn svg path {
-  stroke: #DFFE40;
+  stroke: #1e66a6;
   transition: 0.3s;
 }
 .er-service-item:hover .er-service-title {
-  color: #DFFE40;
+  color: #1e66a6;
 }
 .er-service-item:hover .er-service-num {
-  color: #DFFE40;
+  color: #1e66a6;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px), (max-width: 767px) {
@@ -14392,10 +14401,10 @@ img {
   transition: 0.3s;
 }
 .er-team-social ul li:hover i {
-  color: #DFFE40;
+  color: #1e66a6;
 }
 .er-team-social ul li:hover svg path {
-  fill: #DFFE40;
+  fill: #1e66a6;
 }
 .er-team-single-img {
   border-radius: 4px;
@@ -14556,7 +14565,7 @@ img {
   margin-bottom: 228px;
 }
 .er-team:hover {
-  background-color: #DFFE40;
+  background-color: #1e66a6;
 }
 .er-team:hover .er-team-img {
   transform: translateY(88px);
@@ -14584,7 +14593,7 @@ img {
   font-weight: 500;
   line-height: 30px; /* 150% */
   border-radius: 15px;
-  background: #DFFE40;
+  background: #1e66a6;
   display: inline-block;
   width: 65px;
   height: 30px;
@@ -15761,7 +15770,7 @@ img {
 .er-cta-rect {
   width: 238px;
   height: 43px;
-  background: #DFFE40;
+  background: #1e66a6;
   display: inline-block;
 }
 
@@ -15912,7 +15921,7 @@ img {
   text-align: center;
 }
 .er-price:hover .er-price-btn svg circle {
-  fill: #DFFE40;
+  fill: #1e66a6;
   transition: 0.3s;
 }
 .er-price:hover .er-price-btn svg path {
@@ -15937,7 +15946,7 @@ img {
   color: #000;
   leading-trim: both;
   text-edge: cap;
-  text-shadow: 6px 8px 4px #DFFE40;
+  text-shadow: 6px 8px 4px #1e66a6;
   font-size: 260px;
   font-style: normal;
   font-weight: 700;
@@ -16005,9 +16014,9 @@ img {
   text-align: center;
   border-radius: 100%;
   background: transparent;
-  color: #141414;
+  color: #ffffff;
   display: inline-block;
-  background: #DFFE40;
+  background: #1e66a6;
   z-index: 9;
   font-size: 30px;
 }
@@ -16054,7 +16063,7 @@ img {
   position: absolute;
   width: 240px;
   height: 240px;
-  background: #DFFE40;
+  background: #1e66a6;
   opacity: 0.3;
   border-radius: 100%;
   right: -50px;

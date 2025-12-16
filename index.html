@@ -180,7 +180,7 @@
     <div class="container p-relative z-index-11">
            <div class="row">
             <div class="col-xl-7">
-                 <h1 class="er-hero-content er_fade_top">
+                 <h1 class="er-hero-content" id="magicHeroText">
                     Leading Manufacturer of <br> High-Quality Magnesia<br><span>Products</span>
                     <span><img class="hero-img" style="width: 100px;" src="https://pakmagnesia.com/wp-content/uploads/2025/03/Mag-Atom-1.png" alt=""></span>
                 </h1>
@@ -465,7 +465,7 @@
 
     <!-- About Area -->
 
-    <section class="er-about-area pt-160 " data-bg-color="#DFFE40">
+    <section class="er-about-area pt-160 " data-bg-color="#1e66a6">
         <div class="container">
             
             <div class="er-section-title-wraper pb-74">
@@ -1017,6 +1017,148 @@
     <script src="assets/js/nice-select.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/tp-cursor.js"></script>
+    
+    <script>
+    // Wait for all scripts to load
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            // Get the hero text element
+            const heroText = document.getElementById('magicHeroText');
+            if (!heroText) return;
+            
+            // Get the text content
+            const text = heroText.innerHTML;
+            
+            // Split into words and wrap each word
+            const words = [];
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = text;
+            
+            // Process text nodes
+            function processNode(node) {
+                if (node.nodeType === 3) { // Text node
+                    const nodeWords = node.textContent.trim().split(/\s+/);
+                    nodeWords.forEach(word => {
+                        if (word) words.push(word);
+                    });
+                } else if (node.nodeName === 'BR') {
+                    words.push('<br>');
+                } else if (node.nodeName === 'SPAN' && node.querySelector('img')) {
+                    // Keep image span as is
+                    return;
+                } else if (node.nodeName === 'SPAN') {
+                    words.push('<span class="highlight-special">' + node.textContent + '</span>');
+                } else if (node.childNodes) {
+                    node.childNodes.forEach(child => processNode(child));
+                }
+            }
+            
+            tempDiv.childNodes.forEach(node => processNode(node));
+            
+            // Rebuild HTML with wrapped words
+            let newHTML = '';
+            words.forEach((word, index) => {
+                if (word === '<br>') {
+                    newHTML += '<br>';
+                } else if (word.startsWith('<span class="highlight-special">')) {
+                    newHTML += word + ' ';
+                } else {
+                    newHTML += `<span class="magic-word-${index}" style="display:inline-block;opacity:0">${word}</span> `;
+                }
+            });
+            
+            // Add image back
+            newHTML += '<span><img class="hero-img" style="width: 100px;" src="https://pakmagnesia.com/wp-content/uploads/2025/03/Mag-Atom-1.png" alt=""></span>';
+            
+            heroText.innerHTML = newHTML;
+            heroText.style.perspective = '1000px';
+            
+            // Animate each word with GSAP
+            words.forEach((word, index) => {
+                if (word === '<br>' || word.startsWith('<span class="highlight-special">')) return;
+                
+                const wordEl = heroText.querySelector(`.magic-word-${index}`);
+                if (wordEl) {
+                    gsap.fromTo(wordEl, 
+                        {
+                            opacity: 0,
+                            y: 100,
+                            rotationX: -90,
+                            scale: 0.5,
+                            filter: 'blur(15px)'
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            rotationX: 0,
+                            scale: 1,
+                            filter: 'blur(0px)',
+                            duration: 1,
+                            delay: index * 0.15,
+                            ease: 'back.out(1.5)',
+                            onComplete: function() {
+                                // Add floating animation
+                                gsap.to(wordEl, {
+                                    y: -6,
+                                    duration: 2,
+                                    ease: 'sine.inOut',
+                                    repeat: -1,
+                                    yoyo: true
+                                });
+                            }
+                        }
+                    );
+                    
+                    // Hover effect
+                    wordEl.addEventListener('mouseenter', function() {
+                        gsap.to(this, {
+                            scale: 1.15,
+                            color: '#1e66a6',
+                            textShadow: '0 0 30px rgba(30,102,166,0.8)',
+                            duration: 0.3
+                        });
+                    });
+                    
+                    wordEl.addEventListener('mouseleave', function() {
+                        gsap.to(this, {
+                            scale: 1,
+                            color: 'inherit',
+                            textShadow: 'none',
+                            duration: 0.3
+                        });
+                    });
+                }
+            });
+            
+            // Animate highlight word
+            const highlightWord = heroText.querySelector('.highlight-special');
+            if (highlightWord) {
+                highlightWord.style.background = 'linear-gradient(135deg, #1e66a6, #145a94)';
+                highlightWord.style.webkitBackgroundClip = 'text';
+                highlightWord.style.webkitTextFillColor = 'transparent';
+                highlightWord.style.backgroundClip = 'text';
+                highlightWord.style.display = 'inline-block';
+                
+                gsap.fromTo(highlightWord,
+                    {
+                        opacity: 0,
+                        y: 100,
+                        scale: 0.5
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 1,
+                        delay: words.length * 0.15,
+                        ease: 'back.out(1.5)'
+                    }
+                );
+            }
+            
+        }, 800); // Wait for GSAP ScrollSmoother to initialize
+    });
+    </script>
 </body>
 
 <!-- Mirrored from constrix.ekatasarkar.com/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Dec 2025 08:17:22 GMT -->
